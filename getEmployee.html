@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Employee</title>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <script src="fontawesome/js/all.js"></script>
+    <script src="datatables/js/jquery.dataTables.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <!-- Input form -->
+	<div class="container" id="signup-container">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                             <div class="col">
+                                <center>
+                                    <h3>Search Employee Details</h3>
+                                     <asp:Label ID="lblSaved" runat="server" Visible="false" Text="Changes saved." ForeColor ="Green"></asp:Label>
+                                 </center>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                               
+                                <label>Enter Employee Number</label>
+								<div class="form-group">
+								   <input type="text" width="100%" class="form-control" ID="txtID" runat="server" Enabled="False"></input>
+								</div>
+                           </div>
+                       </div>
+                       <div class="row">
+                        <div class="col">
+                           
+                            <div id="searchEmp">
+                                <button style="width: 100%;" class="btn btn-outline-success" OnClick="saveBtn_Click1" ID="saveBtn" runat="server" Text="Save Changes" ValidationGroup="validGrp"><i class="fa fa-search"></i> Search</input>
+                            </div>
+                       </div>
+                   </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+
+</html>
