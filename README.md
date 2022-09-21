@@ -3,4 +3,5 @@
 #!/bin/bash
 sudo yum update -y
 sudo yum install git -y
-git clone https://github.com/
+git clone https://github.com/rjpoh/hr_cloud_computing.git
+
