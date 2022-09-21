@@ -3,7 +3,7 @@
 server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'assignmentdb.cstcxmslvisd.us-east-1.rds.amazonaws.com');
 define('DB_USERNAME', 'main');
-define('DB_PASSWORD', 'assingmentpw');
+define('DB_PASSWORD', 'assignmentpw');
 define('DB_NAME', 'hr_system_cloudcomputing');
  
 /* Attempt to connect to MySQL database */
