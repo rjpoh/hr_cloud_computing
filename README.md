@@ -45,3 +45,6 @@ sudo composer install
 
 cd /home/ec2-user
 nano composer.json
+
+
+{ "require": { "monolog/monolog": "1.0.*" } }
