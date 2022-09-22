@@ -39,6 +39,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      } else{
          $location = $input_location;
      }
+ 
+     // Validate image
+     $input_imageUpload = trim($_POST["imageUpload"]);
+     if(empty($input_imageUpload)){
+         $imageUpload = "images/default-profile-icon.jpg"  ;  
+     } else{
+         $imageUpload = "images/" . $input_imageUpload;
+     }
     
     // Check input errors before inserting in database
     if(empty($fname_err) && empty($lname_err) && empty($pskills_err) && empty($location_err)){
@@ -115,6 +123,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <label>Location</label>
                                 <input type="text" name="location" class="form-control <?php echo (!empty($location_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $location; ?>">
                                 <span class="invalid-feedback"><?php echo $location_err;?></span>
+                            </div>
+                            <div class="form-group">
+                                  <label>Image</label>
+                                  <input type="file" name="imageUpload" class="form-control <?php echo (!empty($imageUpload_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $imageUpload; ?>">
+                                  <span class="invalid-feedback"><?php echo $imageUpload_err;?></span>
                             </div>
                             
                             <input type="submit" class="btn btn-primary" value="Submit">
