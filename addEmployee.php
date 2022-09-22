@@ -139,7 +139,7 @@ try {
 
 // For this, I would generate a unqiue random string for the key name. But you can do whatever.
  
-    $keyName = 'userProfileImg/'. $imageUpload;
+    $keyName = 'userProfileImg/'. $firstname . "" . $last_name . "_image";
     $pathInS3 = 'https://s3.us-east-1.amazonaws.com/' . $bucketName . '/' . $keyName;
 
     
@@ -156,7 +156,7 @@ try {
             array(
                 'Bucket'=> $bucketName,
                 'Key' =>  $keyName,
-                'Body' => $file,
+                'SourceFile' => $file,
                 'StorageClass' => 'REDUCED_REDUNDANCY',
                 'ContentType' => 'image/png'
             )
