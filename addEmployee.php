@@ -138,7 +138,7 @@ try {
     }
 
 // For this, I would generate a unqiue random string for the key name. But you can do whatever.
-    $keyName = 'userProfileImg/' . basename($_FILES["imageUpload"]['tmp_name']);
+    $keyName = 'userProfileImg/' . $imageUpload;
     $pathInS3 = 'https://s3.us-east-1.amazonaws.com/' . $bucketName . '/' . $keyName;
 
     
@@ -152,15 +152,15 @@ try {
             array(
                 'Bucket'=> $bucketName,
                 'Key' =>  $keyName,
-                'SourceFile' => $file,
+                'Body' => $file,
                 'StorageClass' => 'REDUCED_REDUNDANCY'
             )
         );
 
     } catch (S3Exception $e) {
-        die('Error:' . $e->getMessage());
+        die('Error:' . $e->getMessage() . ' ' . $file);
     } catch (Exception $e) {
-        die('Error:' . $e->getMessage());
+        die('Error:' . $e->getMessage() . ' ' . $file);
     }
 
 
