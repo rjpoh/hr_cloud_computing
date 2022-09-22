@@ -138,7 +138,8 @@ try {
     }
 
 // For this, I would generate a unqiue random string for the key name. But you can do whatever.
-    $keyName = 'userProfileImg/' . $imageUpload;
+    $keyName = 'userProfileImg/' . basename($FILES["imageUpload"]["tmp_name"]]
+    echo $keyName;
     $pathInS3 = 'https://s3.us-east-1.amazonaws.com/' . $bucketName . '/' . $keyName;
 
     
@@ -146,7 +147,7 @@ try {
     // Add it to S3
     try {
         // Uploaded:
-        $file = "s3://teherjie-bucket/userProfileImg/" . $imageUpload;
+        $file = $FILES["imageUpload"]["tmp_name"]
 
         $s3->putObject(
             array(
