@@ -26,3 +26,7 @@ sudo rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
 yum install mysql-server
 
 mysql -u main -P 3306 --host assignmentdb.cstcxmslvisd.us-east-1.rds.amazonaws.com -p
+
+----------------------------------------------------------------
+Directory 
+cd /var/www/html
