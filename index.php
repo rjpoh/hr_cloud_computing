@@ -32,7 +32,7 @@
                         <h2 class="pull-left">HR System Employee List</h2>
                         <a href="addEmployee.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i> Add New Employee</a>
                     </div>
-                    <?php
+                   <?php
                     // Include config file
                     require_once "config.php";
                     
@@ -44,6 +44,7 @@
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>#</th>";
+                                        echo "<th>Profile Photo</th>";
                                         echo "<th>First Name</th>";
                                         echo "<th>Last Name</th>";
                                         echo "<th>Primary Skills</th>";
@@ -55,6 +56,7 @@
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td> <img src='". $row['photoURL'] ."' width='50px'></td>";
                                         echo "<td>" . $row['fname'] . "</td>";
                                         echo "<td>" . $row['lname'] . "</td>";
                                         echo "<td>" . $row['primarySkills'] . "</td>";
