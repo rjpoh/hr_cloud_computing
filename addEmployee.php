@@ -139,7 +139,7 @@ try {
 
 // For this, I would generate a unqiue random string for the key name. But you can do whatever.
  
-    $keyName = 'userProfileImg/'. $imageUpload);
+    $keyName = 'userProfileImg/'. $imageUpload;
     $pathInS3 = 'https://s3.us-east-1.amazonaws.com/' . $bucketName . '/' . $keyName;
 
     
