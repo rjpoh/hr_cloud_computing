@@ -3,8 +3,8 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$fname = $lname = $pskills = $location = "";
-$fname_err = $lname_err = $pskills_err = $location_err = "";
+$fname = $lname = $pskills = $location = $imageUpload = "";
+$fname_err = $lname_err = $pskills_err = $location_err = $imageUpload_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      } else{
          $location = $input_location;
      }
- 
+
      // Validate image
      $input_imageUpload = trim($_POST["imageUpload"]);
      if(empty($input_imageUpload)){
@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_lname = $lname;
             $param_pskills = $pskills;
             $param_location = $location;
-            $param_image = "image.jpg";
+            $param_image = $imageUpload;
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -82,7 +82,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
