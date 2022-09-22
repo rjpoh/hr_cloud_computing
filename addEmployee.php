@@ -146,7 +146,7 @@ try {
     // Add it to S3
     try {
         // Uploaded:
-        $file = $_FILES["imageUpload"]['tmp_name'];
+        $file = $imageUpload;
 
         $s3->putObject(
             array(
