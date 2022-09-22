@@ -66,55 +66,7 @@ use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
 
 // AWS Info
-$bucketName = 'teherjie-bucket';
-$IAM_KEY = NULL;
-$IAM_SECRET = NULL;
 
-try {
-        // You may need to change the region. It will say in the URL when the bucket is open
-        // and on creation.
-        $s3 = S3Client::factory(
-            array(
-                'credentials' => array(
-                    'key' => $IAM_KEY,
-                    'secret' => $IAM_SECRET
-                ),
-                'version' => 'latest',
-                'region'  => 'us-east-1'
-            )
-        );
-    } catch (Exception $e) {
-        // We use a die, so if this fails. It stops here. Typically this is a REST call so this would
-        // return a json object.
-        die("Error: " . $e->getMessage());
-    }
-
-// For this, I would generate a unqiue random string for the key name. But you can do whatever.
-    $keyName = 'userProfileImg/' . basename($_FILES["imageUpload"]['tmp_name']);
-    $pathInS3 = 'https://s3.us-east-1.amazonaws.com/' . $bucketName . '/' . $keyName;
-
-    // Add it to S3
-    try {
-        // Uploaded:
-        $file = $_FILES["imageUpload"]['tmp_name'];
-
-        $s3->putObject(
-            array(
-                'Bucket'=>$bucketName,
-                'Key' =>  $keyName,
-                'SourceFile' => $file,
-                'StorageClass' => 'REDUCED_REDUNDANCY'
-            )
-        );
-
-    } catch (S3Exception $e) {
-        die('Error:' . $e->getMessage());
-    } catch (Exception $e) {
-        die('Error:' . $e->getMessage());
-    }
-
-
-    echo 'Done';
 
 // Define variables and initialize with empty values
 $fname = $lname = $pskills = $location = $imageUpload = "";
@@ -161,6 +113,58 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      } else{
          $imageUpload = "images/" . $input_imageUpload;
      }
+    
+    $bucketName = 'teherjie-bucket';
+$IAM_KEY = NULL;
+$IAM_SECRET = NULL;
+
+try {
+        // You may need to change the region. It will say in the URL when the bucket is open
+        // and on creation.
+        $s3 = S3Client::factory(
+            array(
+                'credentials' => array(
+                    'key' => $IAM_KEY,
+                    'secret' => $IAM_SECRET
+                ),
+                'version' => 'latest',
+                'region'  => 'us-east-1'
+            )
+        );
+    } catch (Exception $e) {
+        // We use a die, so if this fails. It stops here. Typically this is a REST call so this would
+        // return a json object.
+        die("Error: " . $e->getMessage());
+    }
+
+// For this, I would generate a unqiue random string for the key name. But you can do whatever.
+    $keyName = 'userProfileImg/' . basename($_FILES["imageUpload"]['tmp_name']);
+    $pathInS3 = 'https://s3.us-east-1.amazonaws.com/' . $bucketName . '/' . $keyName;
+
+    
+
+    // Add it to S3
+    try {
+        // Uploaded:
+        $file = $_FILES["imageUpload"]['tmp_name'];
+
+        $s3->putObject(
+            array(
+                'Bucket'=> $bucketName,
+                'Key' =>  $keyName,
+                'SourceFile' => $file,
+                'StorageClass' => 'REDUCED_REDUNDANCY'
+            )
+        );
+
+    } catch (S3Exception $e) {
+        die('Error:' . $e->getMessage());
+    } catch (Exception $e) {
+        die('Error:' . $e->getMessage());
+    }
+
+
+    echo 'Done';
     
     // Check input errors before inserting in database
     if(empty($fname_err) && empty($lname_err) && empty($pskills_err) && empty($location_err)){
