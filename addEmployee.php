@@ -180,7 +180,7 @@ try {
             $param_lname = $lname;
             $param_pskills = $pskills;
             $param_location = $location;
-            $param_image = $imageUpload;
+            $param_image = "s3://teherjie-bucket/userProfileImg/" . $imageUpload;
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
