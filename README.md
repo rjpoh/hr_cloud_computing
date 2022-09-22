@@ -32,3 +32,12 @@ mysql -u main -P 3306 --host assignmentdb.cstcxmslvisd.us-east-1.rds.amazonaws.c
 ----------------------------------------------------------------
 Directory 
 cd /var/www/html
+
+-----------------------------------------------------------------
+cd ~
+sudo curl -sS https://getcomposer.org/installer | sudo php
+sudo mv composer.phar /usr/local/bin/composer
+sudo ln -s /usr/local/bin/composer /usr/bin/composer
+
+--------------------------------------------------------------------
+sudo composer install
