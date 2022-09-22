@@ -1,3 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Record</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .wrapper{
+            width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                        <h2 class="mt-5">Create Record</h2>
+                        <p>Please fill this form and submit to add employee record to the database.</p>
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" name="fname" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $fname; ?>">
+                                <span class="invalid-feedback"><?php echo $name_err;?></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" name="lname" class="form-control <?php echo (!empty($lname_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $lname; ?>">
+                                <span class="invalid-feedback"><?php echo $lname_err;?></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Primary Skills</label>
+                                <input type="text" name="pskills" class="form-control <?php echo (!empty($pskills_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $pskills; ?>">
+                                <span class="invalid-feedback"><?php echo $pskills_err;?></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Location</label>
+                                <input type="text" name="location" class="form-control <?php echo (!empty($location_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $location; ?>">
+                                <span class="invalid-feedback"><?php echo $location_err;?></span>
+                            </div>
+                            <div class="form-group">
+                                  <label>Image</label>
+                                  <input type="file" name="imageUpload" class="form-control <?php echo (!empty($imageUpload_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $imageUpload; ?>">
+                                  <span class="invalid-feedback"><?php echo $imageUpload_err;?></span>
+                            </div>
+                            
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                            <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
+                        </form>
+                </div>
+            </div>        
+        </div>
+    </div>
+</body>
+</html>
+
+
 <?php
 // Include config file
 require_once "config.php";
@@ -139,59 +197,3 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Record</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .wrapper{
-            width: 600px;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
-    <div class="wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                        <h2 class="mt-5">Create Record</h2>
-                        <p>Please fill this form and submit to add employee record to the database.</p>
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                            <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" name="fname" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $fname; ?>">
-                                <span class="invalid-feedback"><?php echo $name_err;?></span>
-                            </div>
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" name="lname" class="form-control <?php echo (!empty($lname_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $lname; ?>">
-                                <span class="invalid-feedback"><?php echo $lname_err;?></span>
-                            </div>
-                            <div class="form-group">
-                                <label>Primary Skills</label>
-                                <input type="text" name="pskills" class="form-control <?php echo (!empty($pskills_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $pskills; ?>">
-                                <span class="invalid-feedback"><?php echo $pskills_err;?></span>
-                            </div>
-                            <div class="form-group">
-                                <label>Location</label>
-                                <input type="text" name="location" class="form-control <?php echo (!empty($location_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $location; ?>">
-                                <span class="invalid-feedback"><?php echo $location_err;?></span>
-                            </div>
-                            <div class="form-group">
-                                  <label>Image</label>
-                                  <input type="file" name="imageUpload" class="form-control <?php echo (!empty($imageUpload_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $imageUpload; ?>">
-                                  <span class="invalid-feedback"><?php echo $imageUpload_err;?></span>
-                            </div>
-                            
-                            <input type="submit" class="btn btn-primary" value="Submit">
-                            <a href="index.php" class="btn btn-secondary ml-2">Cancel</a>
-                        </form>
-                </div>
-            </div>        
-        </div>
-    </div>
-</body>
-</html>
