@@ -146,7 +146,7 @@ try {
     // Add it to S3
     try {
         // Uploaded:
-        $file = $imageUpload;
+        $file = "s3://teherjie-bucket/userProfileImg/" . $imageUpload;
 
         $s3->putObject(
             array(
