@@ -154,6 +154,7 @@ try {
                 'Key' =>  $keyName,
                 'Body' => $file,
                 'StorageClass' => 'STANDARD'
+                'ContentType' => 'image/png'
             )
         );
 
