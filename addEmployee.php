@@ -123,10 +123,7 @@ try {
         // and on creation.
         $s3 = S3Client::factory(
             array(
-                'credentials' => array(
-                    'key' => $IAM_KEY,
-                    'secret' => $IAM_SECRET
-                ),
+         
                 'version' => 'latest',
                 'region'  => 'us-east-1'
             )
