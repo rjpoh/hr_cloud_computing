@@ -41,3 +41,7 @@ sudo ln -s /usr/local/bin/composer /usr/bin/composer
 
 --------------------------------------------------------------------
 sudo composer install
+
+
+cd /home/ec2-user
+nano composer.json
