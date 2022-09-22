@@ -41,7 +41,7 @@
                             </div>
                             <div class="form-group">
                                   <label>Image</label>
-                                  <input type="file" name="imageUpload" class="form-control <?php echo (!empty($imageUpload_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $imageUpload; ?>">
+                                  <input id="imageUpload" type="file" name="imageUpload" class="form-control <?php echo (!empty($imageUpload_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $imageUpload; ?>">
                                   <span class="invalid-feedback"><?php echo $imageUpload_err;?></span>
                             </div>
                             
