@@ -109,21 +109,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      // Validate image
      $input_imageUpload = trim($_POST["imageUpload"]);
      if(empty($input_imageUpload)){
-         $imageUpload = "images/default-profile-icon.jpg"  ;  
+         $imageUpload = "images/default-profile-icon.jpg";  
      } else{
          $imageUpload = "images/" . $input_imageUpload;
      }
     
     $bucketName = 'teherjie-bucket';
-$IAM_KEY = NULL;
-$IAM_SECRET = NULL;
+	$IAM_KEY = NULL;
+	$IAM_SECRET = NULL;
 
 try {
         // You may need to change the region. It will say in the URL when the bucket is open
         // and on creation.
         $s3 = S3Client::factory(
             array(
-         
+                'credentials' => array(
+                    'key' => $IAM_KEY,
+                    'secret' => $IAM_SECRET
+                ),
                 'version' => 'latest',
                 'region'  => 'us-east-1'
             )
@@ -135,23 +138,26 @@ try {
     }
 
 // For this, I would generate a unqiue random string for the key name. But you can do whatever.
-    $keyName = 'userProfileImg/' . basename($FILES["imageUpload"]["tmp_name"]]
-    echo $keyName;
+ 
+    $keyName = 'userProfileImg/'. basename($FILES["imageUpload"]["name"]);
     $pathInS3 = 'https://s3.us-east-1.amazonaws.com/' . $bucketName . '/' . $keyName;
 
     
 
     // Add it to S3
     try {
+        
         // Uploaded:
-        $file = $FILES["imageUpload"]["tmp_name"]
+        $file = $_FILES["imageUpload"]["tmp_name"];
+
+        echo $file;
 
         $s3->putObject(
             array(
                 'Bucket'=> $bucketName,
                 'Key' =>  $keyName,
                 'Body' => $file,
-                'StorageClass' => 'STANDARD'
+                'StorageClass' => 'REDUCED_REDUNDANCY',
                 'ContentType' => 'image/png'
             )
         );
@@ -199,4 +205,3 @@ try {
     mysqli_close($link);
 }
 ?>
-
