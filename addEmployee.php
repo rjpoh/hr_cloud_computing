@@ -18,7 +18,7 @@
                 <div class="col-md-12">
                         <h2 class="mt-5">Create Record</h2>
                         <p>Please fill this form and submit to add employee record to the database.</p>
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>First Name</label>
                                 <input type="text" name="fname" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $fname; ?>">
@@ -139,7 +139,7 @@ try {
 
 // For this, I would generate a unqiue random string for the key name. But you can do whatever.
  
-    $keyName = 'userProfileImg/'. basename($_FILES["imageUpload"]["name"]);
+    $keyName = 'userProfileImg/'. $imageUpload;
     $pathInS3 = 'https://s3.us-east-1.amazonaws.com/' . $bucketName . '/' . $keyName;
 
     
@@ -163,7 +163,7 @@ try {
         );
 
     } catch (S3Exception $e) {
-        die('Error:' . $e->getMessage() . ' ' . $file);
+        die('s3Error:' . $e->getMessage() . ' ' . $file);
     } catch (Exception $e) {
         die('Error:' . $e->getMessage() . ' ' . $file);
     }
