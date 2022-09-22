@@ -5,7 +5,7 @@ sudo yum update -y
 sudo yum install git -y
 git clone https://github.com/rjpoh/hr_cloud_computing.git
 -----------------------------------------------------------------
-
+#User Data
 #!/bin/bash -ex
 # Updated to use Amazon Linux 2
 sudo yum -y update
@@ -17,11 +17,13 @@ sudo /usr/bin/systemctl start httpd
 cd /var/www/html
 
 ----------------------------------------------------------------
+#to get html directory
 wget https://aws-tc-largeobjects.s3.amazonaws.com/CUR-TF-100-ACCLFO-2/lab5-rds/lab-app-php7.zip
 unzip lab-app-php7.zip -d /var/www/html/
 chown apache:root /var/www/html/rds.conf.php
 
 ----------------------------------------------------------------
+#install sql
 sudo rpm -Uvh http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
 yum install mysql-server
 
