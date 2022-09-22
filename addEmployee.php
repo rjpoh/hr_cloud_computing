@@ -153,7 +153,7 @@ try {
                 'Bucket'=> $bucketName,
                 'Key' =>  $keyName,
                 'Body' => $file,
-                'StorageClass' => 'REDUCED_REDUNDANCY'
+                'StorageClass' => 'STANDARD'
             )
         );
 
