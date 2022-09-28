@@ -3,7 +3,7 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$fname = $lname = $pskills = $location = $photoURL = "";
+$fname = $lname = $pskills = $location = "";
 $fname_err = $lname_err = $pskills_err = $location_err = "";
  
 // Processing form data when form is submitted
