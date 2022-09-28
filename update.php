@@ -173,7 +173,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                                 <input type="text" name="location" class="form-control <?php echo (!empty($location_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $location; ?>">
                                 <span class="invalid-feedback"><?php echo $location_err;?></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="visibility:hidden">
                                 <label>Photo</label>
                                 <input type="text" name="photo" class="form-control <?php echo (!empty($photoURL)) ? 'is-invalid' : ''; ?>" value="<?php echo $photoURL; ?>">
                                 <span class="invalid-feedback"><?php echo $location_err;?></span>
