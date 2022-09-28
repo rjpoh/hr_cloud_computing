@@ -3,7 +3,7 @@
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$fname = $lname = $pskills = $location = "";
+$fname = $lname = $pskills = $location = $photoURL = "";
 $fname_err = $lname_err = $pskills_err = $location_err = "";
  
 // Processing form data when form is submitted
@@ -57,7 +57,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
             $param_lname = $lname;
             $param_pskills = $pskills;
             $param_location = $location;
-            $param_image = "image.jpg";
+            $param_image = $photoURL;
             $param_id = $id;
             
             // Attempt to execute the prepared statement
@@ -105,6 +105,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     $lname = $row["lname"];
                     $pskills = $row["primarySkills"];
                     $location = $row["location"];
+                    $photoURL = $row["photoURL"];
                 } else{
                     // URL doesn't contain valid id. Redirect to error page
                     header("location: error.php");
