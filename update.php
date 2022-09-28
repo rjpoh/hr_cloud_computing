@@ -42,6 +42,8 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
       } else{
           $location = $input_location;
       }
+ 
+      $photoURL = trim($_POST["photo"]);;
     
     // Check input errors before inserting in database
     if(empty($fname_err) && empty($lname_err) && empty($pskills_err) && empty($location_err)){
@@ -169,6 +171,11 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                             <div class="form-group">
                                 <label>Location</label>
                                 <input type="text" name="location" class="form-control <?php echo (!empty($location_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $location; ?>">
+                                <span class="invalid-feedback"><?php echo $location_err;?></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Photo</label>
+                                <input type="text" name="photo" class="form-control <?php echo (!empty($photoURL)) ? 'is-invalid' : ''; ?>" value="<?php echo $photoURL; ?>">
                                 <span class="invalid-feedback"><?php echo $location_err;?></span>
                             </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>"/>
